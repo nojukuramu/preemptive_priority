@@ -35,7 +35,7 @@ tat = 0
 wT = 0
 
 eta = 0
-for item in sample_jobs.values():
+for item in jobs.values():
     eta += item[1]
 
 # Insert your logic here
