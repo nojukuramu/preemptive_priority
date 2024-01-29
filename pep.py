@@ -50,23 +50,16 @@ for item in jobs.values():
 
 # Insert your logic here
 while True:
-
     for job, details in jobs.items():
         if details[0] == currTime:
             queue[job] = details
-
-    
-
-    
-        
-    
 
     #if queue got new job, ongoing job will be pulled back to queue
     if ongoing and queue and (queue != prev_queue):
         for job, details in ongoing.items():
             queue[job] = details
         ongoing = {}
-        item = min(queue, key=lambda x: queue[x][2])
+        item = min(queue, key=lambda x: (queue[x][2], queue[x][3], queue[x]))
         ongoing = {item: queue[item]}
         del queue[item]
         
